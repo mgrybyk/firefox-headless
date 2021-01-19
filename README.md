@@ -3,15 +3,15 @@ Firefox headless with JDK, Maven, NodeJS
 
 ## Build
 
-- **JDK_MAVEN_NODE**=`mvn3-jdk11-node12`
+- **JDK_MAVEN_NODE**=`mvn3-jdk11-node14`
 - **FIREFOX_VERSION**=`latest`
 
 ### Examples
 
 #### Command Line
 
-`docker build --build-arg JDK_MAVEN_NODE=mvn3-jdk11-node12 --build-arg FIREFOX_VERSION=latest -f Dockerfile -t firefox .`
+`docker build --build-arg JDK_MAVEN_NODE=mvn3-jdk11-node14 --build-arg FIREFOX_VERSION=latest -f Dockerfile -t firefox .`
 
 #### Jenkins Pipeline
 
-`docker.build('firefox', '--build-arg JDK_MAVEN_NODE=mvn3-jdk11-node12 --build-arg FIREFOX_VERSION=latest -f Dockerfile .')`
+`docker.build('firefox', '--build-arg JDK_MAVEN_NODE=mvn3-jdk11-node14 --build-arg FIREFOX_VERSION=latest -f Dockerfile .')`
