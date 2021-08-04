@@ -1,0 +1,25 @@
+name: Docker Image CI
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        NODE_VERSION: [12,14,16]
+        JAVA_VERSION: [11]
+    steps:
+      - uses: actions/checkout@v2
+      - name: Docker build and publish
+        env:
+          MVN_VERSION: 3
+          JAVA_VERSION: ${{ matrix.JAVA_VERSION }}
+          NODE_VERSION: ${{ matrix.NODE_VERSION }}
+          DOCKER_IMAGE_TAG: atools/firefox-headless:java${{ matrix.JAVA_VERSION }}-node${{ matrix.NODE_VERSION }}-latest
+          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+        run: |
+          docker login -u atools -p $DOCKER_PASSWORD
+          docker build --build-arg JDK_MAVEN_NODE=mvn$MVN_VERSION-jdk$JAVA_VERSION-node$NODE_VERSION -t ${DOCKER_IMAGE_TAG} .
+          docker push ${DOCKER_IMAGE_TAG}
