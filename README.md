@@ -2,6 +2,10 @@
 Firefox headless with JDK, Maven, NodeJS  
 [Docker Hub](https://hub.docker.com/r/atools/firefox-headless)
 
+## Updates
+
+The image updates every week on Wednesday.
+
 ## Build
 
 - **JDK_MAVEN_NODE**=`mvn3-jdk11-node14`
