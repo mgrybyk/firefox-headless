@@ -1,4 +1,4 @@
-ARG JDK_MAVEN_NODE=mvn3-jdk11-node14
+ARG JDK_MAVEN_NODE=jdk17-nodelts
 
 FROM atools/jdk-maven-node:${JDK_MAVEN_NODE}
 USER root
@@ -8,8 +8,9 @@ USER root
 ARG FIREFOX_VERSION=latest
 RUN FIREFOX_DOWNLOAD_URL=$(if [ "latest" = "latest" ]; then echo "https://download.mozilla.org/?product=firefox-$FIREFOX_VERSION-ssl&os=linux64&lang=en-US"; else echo "https://download-installer.cdn.mozilla.net/pub/firefox/releases/$FIREFOX_VERSION/linux-x86_64/en-US/firefox-$FIREFOX_VERSION.tar.bz2"; fi) && \
     apt-get -qqy update && \
-    apt-get -qqy install libx11-xcb1 libxt-dev libgtk-3-bin libdbus-glib-1-2 && \
+    apt-get -qqy install bzip2 libx11-xcb1 libxt-dev libgtk-3-bin libdbus-glib-1-2 && \
     wget --no-verbose -O /tmp/firefox.tar.bz2 $FIREFOX_DOWNLOAD_URL && \
+    ls -al /tmp/firefox* && \
     tar -C /opt -xjf /tmp/firefox.tar.bz2 && \
     rm /tmp/firefox.tar.bz2 && \
     mv /opt/firefox /opt/firefox-$FIREFOX_VERSION && \
