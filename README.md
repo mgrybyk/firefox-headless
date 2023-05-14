@@ -8,15 +8,15 @@ The image updates every week on Wednesday.
 
 ## Build
 
-- **JDK_MAVEN_NODE**=`mvn3-jdk11-node14`
+- **JDK_MAVEN_NODE**=`jdk17-nodelts`
 - **FIREFOX_VERSION**=`latest`
 
 ### Examples
 
 #### Command Line
 
-`docker build --build-arg JDK_MAVEN_NODE=mvn3-jdk11-node14 --build-arg FIREFOX_VERSION=latest -f Dockerfile -t firefox .`
+`docker build --build-arg JDK_MAVEN_NODE=jdk17-nodelts --build-arg FIREFOX_VERSION=latest -f Dockerfile -t firefox .`
 
 #### Jenkins Pipeline
 
-`docker.build('firefox', '--build-arg JDK_MAVEN_NODE=mvn3-jdk11-node14 --build-arg FIREFOX_VERSION=latest -f Dockerfile .')`
+`docker.build('firefox', '--build-arg JDK_MAVEN_NODE=jdk17-nodelts --build-arg FIREFOX_VERSION=latest -f Dockerfile .')`
