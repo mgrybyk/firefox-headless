@@ -1,4 +1,7 @@
 # firefox-headless
+
+> DEPRECATED!
+
 Firefox headless with JDK, Maven, NodeJS  
 [Docker Hub](https://hub.docker.com/r/atools/firefox-headless)
 
