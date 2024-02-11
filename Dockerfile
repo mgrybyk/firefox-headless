@@ -16,3 +16,5 @@ RUN FIREFOX_DOWNLOAD_URL=$(if [ "latest" = "latest" ]; then echo "https://downlo
     mv /opt/firefox /opt/firefox-$FIREFOX_VERSION && \
     ln -fs /opt/firefox-$FIREFOX_VERSION/firefox /usr/bin/firefox && \
     rm -rf /var/lib/apt/lists/* /var/cache/apt/*
+
+RUN echo "" && echo "firefox-headless IS DEPRECATED!" && echo ""
